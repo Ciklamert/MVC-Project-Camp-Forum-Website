@@ -1,4 +1,5 @@
 ﻿using DataAccess.Abstract;
+using Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -9,41 +10,35 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Concrete.Repositories
 {
-    public class GenericRepository<T> : IRepository<T> where T : class
+    public class WriterRepository : IWriterDal
     {
         Context c = new Context();
-        DbSet<T> _object;
-        public GenericRepository() // generic item'a bir değer atayacaz
-        {
-            _object = c.Set<T>(); // context'teki tipe eşittir.
-        }
-        public void Delete(T item)
+        DbSet<Writer> _object;
+        public void Delete(Writer item)
         {
             _object.Remove(item);
             c.SaveChanges();
         }
 
-        public void Insert(T item)
+        public void Insert(Writer item)
         {
             _object.Add(item);
             c.SaveChanges();
         }
 
-        public List<T> List()
+        public List<Writer> List()
         {
             return _object.ToList();
-            
         }
 
-        public List<T> List(Expression<Func<T, bool>> filter)
+        public List<Writer> List(Expression<Func<Writer, bool>> filter)
         {
             return _object.Where(filter).ToList();
         }
 
-        public void Update(T item)
+        public void Update(Writer item)
         {
             c.SaveChanges();
         }
-        
     }
 }

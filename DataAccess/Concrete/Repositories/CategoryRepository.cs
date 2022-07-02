@@ -1,4 +1,5 @@
 ﻿using DataAccess.Abstract;
+using Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -9,41 +10,35 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Concrete.Repositories
 {
-    public class GenericRepository<T> : IRepository<T> where T : class
+    public class CategoryRepository : ICategoryDal
     {
         Context c = new Context();
-        DbSet<T> _object;
-        public GenericRepository() // generic item'a bir değer atayacaz
-        {
-            _object = c.Set<T>(); // context'teki tipe eşittir.
-        }
-        public void Delete(T item)
+        DbSet<Category> _object;
+        public void Delete(Category item)
         {
             _object.Remove(item);
             c.SaveChanges();
         }
 
-        public void Insert(T item)
+        public void Insert(Category item)
         {
             _object.Add(item);
             c.SaveChanges();
         }
 
-        public List<T> List()
+        public List<Category> List()
         {
             return _object.ToList();
-            
         }
 
-        public List<T> List(Expression<Func<T, bool>> filter)
+        public List<Category> List(Expression<Func<Category, bool>> filter)
         {
             return _object.Where(filter).ToList();
         }
 
-        public void Update(T item)
+        public void Update(Category item)
         {
             c.SaveChanges();
         }
-        
     }
 }

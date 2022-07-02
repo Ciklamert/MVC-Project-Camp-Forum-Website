@@ -10,7 +10,7 @@ namespace Entities.Concrete
     public class About
     {
         [Key]
-        public int AboutId { get; set; }
+        public int AboutId { get; set; } // automatic property
         [StringLength(500)]
         public string AboutDetails1 { get; set; }
         [StringLength(500)]
@@ -19,5 +19,6 @@ namespace Entities.Concrete
         public string AboutImage { get; set; } // dosya yolu string olarak tutulacak.
         [StringLength(100)]
         public string AboutImage2 { get; set; }
+    
     }
 }
