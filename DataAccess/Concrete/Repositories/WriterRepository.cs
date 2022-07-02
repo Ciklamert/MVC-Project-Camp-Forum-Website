@@ -10,8 +10,9 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Concrete.Repositories
 {
-    public class WriterRepository : IWriterDal
+    public class WriterRepository : GenericRepository<Writer>, IWriterDal
     {
+        /*
         Context c = new Context();
         DbSet<Writer> _object;
         public void Delete(Writer item)
@@ -40,5 +41,6 @@ namespace DataAccess.Concrete.Repositories
         {
             c.SaveChanges();
         }
+        */
     }
 }

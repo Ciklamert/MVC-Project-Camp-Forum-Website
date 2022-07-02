@@ -10,8 +10,9 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Concrete.Repositories
 {
-    public class CategoryRepository : ICategoryDal
+    public class CategoryRepository : GenericRepository<Category>,ICategoryDal
     {
+        /*
         Context c = new Context();
         DbSet<Category> _object;
         public void Delete(Category item)
@@ -40,5 +41,6 @@ namespace DataAccess.Concrete.Repositories
         {
             c.SaveChanges();
         }
+        */
     }
 }
