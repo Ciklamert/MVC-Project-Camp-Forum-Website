@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Entities.Abstract;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Entities.Concrete
 {
-    public class Heading // diğer classlardan erişim sağlamak için public yapıyorum
+    public class Heading :IEntity// diğer classlardan erişim sağlamak için public yapıyorum
     {
         // property = attribute,column
         [Key] // bütün primary keyleri key olarak annotate et

@@ -18,6 +18,11 @@ namespace Business.Concrete
             _categoryDal = categoryDal;
         }
 
+        public void CategoryAdd(Category category)
+        {
+            _categoryDal.Insert(category);
+        }
+
         public List<Category> GetList()
         {
             return _categoryDal.List();
@@ -25,26 +30,22 @@ namespace Business.Concrete
         //CRUD işlemleri
 
         /*
-        public List<Category> GetAll()
-        {
-            return repository.List();
-        }
         public void Add(Category category)
         {
             
-            if(category.CategoryName == "" || category.CategoryName.Length <= 3 || category.CategoryDescription == "")
+            if(category.CategoryName == "" || category.CategoryStatus == false || category.CategoryName.Length <= 2)
             {
                 
-
+                // hata mesajı
             }
             else
             {
-                repository.Insert(category);
+                _categoryDal.Insert(category);
             }
            
             
         }
-        */
+       */
     }
        
 }
