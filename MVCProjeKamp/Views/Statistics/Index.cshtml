@@ -1,0 +1,56 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<br />
+<div class="card-deck">
+    <div class="card text-white bg-primary mb-4 " style="max-width: 20rem;">
+        
+        <div class="card-body">
+            <h2 class="card-title">Toplam Kategori Sayısı</h2>
+            <br /><br />
+            <h3 class="card-text"> @ViewBag.CategoryCount</h3>
+        </div>
+    </div>
+    <div class="card text-white bg-secondary mb-4 " style="max-width: 20rem;">
+       
+        <div class="card-body">
+            <h2 class="card-title">Yazılım Kategorisindeki Başlık Sayısı</h2>
+            <br /><br />
+            <h3 class="card-text"> @ViewBag.SoftwareHeadings</h3>
+        </div>
+    </div>
+    <div class="card text-white bg-warning mb-4 " style="max-width: 20rem; ">
+        
+        <div class="card-body">
+            <h2 class="card-title">Adında A Harfi Bulunan Yazar Sayısı</h2>
+            <br /><br />
+            <h3 class="card-text"> @ViewBag.WriterCountA</h3>
+        </div>
+    </div>
+     <div class="card text-white bg-fuchsia mb-4 " style="max-width: 20rem;">
+       
+        <div class="card-body">
+            <h2 class="card-title">En Fazla Başlığı Olan Kategori Adı</h2>
+            <br /><br />
+            <h3 class="card-text"> @ViewBag.MaxHeadingCategory</h3>
+        </div>
+    </div>
+</div>
+<div class="card-deck">
+    
+
+   
+    <div class="card text-white bg-primary mb-4 " style="max-width: 20rem;">
+       
+        <div class="card-body">
+            <h2 class="card-title">Kategoriler Tablosunda Statüsü True Olanlar ile Statüsü False Olanların Farkı </h2>
+            <br /><br />
+            <h3 class="card-text"> @ViewBag.CategoryDifference</h3>
+        </div>
+    </div>
+</div>
+

@@ -39,5 +39,24 @@ namespace MVCProjeKamp.Controllers
             }
             return View();
         }
+        public IActionResult DeleteCategory(int id)
+        {
+            var categoryValue = categoryManager.GetById(id);
+            categoryManager.CategoryDelete(categoryValue);
+            return RedirectToAction("Index");
+        }
+        [HttpGet]
+        public IActionResult UpdateCategory(int id)
+        {
+            var categoryValues = categoryManager.GetById(id);
+            return View(categoryValues);
+        }
+        [HttpPost]
+        public IActionResult UpdateCategory(Category category)
+        {
+            categoryManager.CategoryUpdate(category);
+            return RedirectToAction("Index");
+        }
+
     }
 }

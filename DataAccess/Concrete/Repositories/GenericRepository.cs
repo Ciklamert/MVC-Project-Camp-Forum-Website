@@ -44,7 +44,10 @@ namespace DataAccess.Concrete.Repositories
 
         public void Update(T item)
         {
-            c.SaveChanges();
+                var updatedEntity = c.Entry(item);
+                updatedEntity.State = EntityState.Modified;
+                c.SaveChanges();
+            
         }
         
     }
