@@ -20,7 +20,8 @@ namespace DataAccess.Concrete.Repositories
         }
         public void Delete(T item)
         {
-            _object.Remove(item);
+            var deletedEntity = c.Entry(item);
+            deletedEntity.State = EntityState.Deleted;
             c.SaveChanges();
         }
 
@@ -31,7 +32,8 @@ namespace DataAccess.Concrete.Repositories
 
         public void Insert(T item)
         {
-            _object.Add(item);
+            var addedEntity = c.Entry(item);
+            addedEntity.State = EntityState.Added;
             c.SaveChanges();
         }
 
